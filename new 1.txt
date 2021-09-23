@@ -1,0 +1,36 @@
+https://raw.githubusercontent.com/vship/edu/main/test1/DAG.py
+
+
+#!/bin/bash
+
+(while read url filename
+do
+  wget $url -O $filename
+done) < list.txt
+
+
+
+
+
+#!/bin/bash
+mkdir stages
+mkdir dags
+(while read url filename
+do
+  wget -P ./dags $url
+  wget --spider ${url%/*}/requirements.txt | wget -O requirements.txt ${url%/*}/requirements.txt
+  if [[ -f "requirements.txt" ]]; then
+	wget -P ./stages/$filename -i requirements.txt
+  fi
+done) < list.txt
+
+
+
+
+echo ${myurl%/*}
+
+${myurl%/*}/requirements.txt
+
+
+
+wget --spider ${myurl%/*}/requirements.txt | wget ${myurl%/*}/requirements.txt
