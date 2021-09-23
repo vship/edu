@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/vship/edu/main/test1/scr1.py
+https://raw.githubusercontent.com/vship/edu/main/test1/scr2.py
